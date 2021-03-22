@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Hola Joni, como vaaa?. Ya se está picando ese summerhack, gracias a mis compañeres por la buena onda y las ayudas.
+Y a vos Joni por la buena onda y toda la data que nos tiras siempre, que este todo bien <3 <3 Mica. -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>AppListite</title>
+<!--MIS DATITOS-->
+<meta name="description" content="Una listita para anotar todas las cositas que necesitas comprar asi no te olvidas nada y no terminas comprando solo oreos y birra">
+<meta name="keywords" content="Lista, Compras, Carrito, Dinero">
+<meta name="author" content="Micaela Dato Firpo">
+<meta name="copyright" content="Escuela DevRock || Mica 2021">  
+<!--SR GOOGLE-->
+<meta name="robots" content="index nofollow">
+    <!--REDES SOCIALES-->
+<!--FACEBOOK-->
+<meta property="og:title" content="AppListite">
+<meta property="og:description" content="Una listita para anotar todas las cositas que necesitas comprar asi no te olvidas nada y no terminas comprando solo oreos y birra">
+<meta property="og:type" content="web">
+<meta property="og:url" content="https://reto3-lista.web.app/">
+<meta property="og:image" content="https://reto3-lista.web.app/images/fondo.jpg">
+<!--TWITTER-->
+<meta property="twitter:title" content="AppListite">
+<meta property="twitter:description" content="Una listita para anotar todas las cositas que necesitas comprar asi no te olvidas nada y no terminas comprando solo oreos y birra">
+<meta property="twitter:type" content="web">
+<meta property="twitter:url" content="https://reto3-lista.web.app/">
+<meta property="twitter:image" content="https://reto3-lista.web.app/images/fondo.jpg">
+<!----FAVICON----->
+<link rel="shortcut icon" href="images/lista.svg" type="image/svg">
+<!---FUENTES-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Sarabun:wght@100;400;700&display=swap" rel="stylesheet">
+<!--MI CSS-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="tituloPrincipal">
+        <nav><a href="https://reto3-lista.web.app/"><img class="tituloPrincipal__imagen" src="images/mercado.svg" alt="Logo de carrito de supermercado"></a> </nav>
+        <h1 class="tituloPrincipal__text" >Lista de Compras</h1>
+    </header>
+    <section id="ventanaInicio" class="ventanaInicio">
+        <div class="ventanaInicio__titulo">
+            <h2>Todavía no compraste nada, guachi.</h2>
+        </div>
+        <div class="ventanaInicio__icon">
+            <img class="gatite" src="images/triste.png" alt="Gatito triste">
+        </div>
+    </section>
+<!---BOTON FLOTANTE PARA ABRIR EL MODAL Y AÑADIR PRODUCTOS A LA LISTA--->
+<button type="button" id="botonPrincipal" class="btn boton__color" data-bs-toggle="modal" data-bs-target="#agregarALista"> + </button>
+<!---MODAL--->
+<div class="modal fade agregarALista" id="agregarALista" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> <strong>Tu listita de confianza</strong> </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body">
+            <!---FORMS--->
+            <div class="mb-3">
+                <label for="agregarAListaProducto" class="form-label"><strong>Nombre del producto</strong> </label>
+                <input type="text" class="form-control agregarAListaProducto" id="agregarAListaProducto" placeholder="Ingresa el nombre del producto" maxlength="15"> <!---hay que validarlo-->
+                <div id="agregarAListaProductohelp" class="form-text"> <i>Máximo de caracteres: 15.</i> </div>
+            </div>
+            <label for="agregarAListaIcono" class="form-label"><strong>Selecciona la categoría</strong></label>
+            <select id="agregarAListaIcono" class="form-select" aria-label="Default select example"> <!---HAY QUE VALIDAR--->
+                <!--SELECCIONAR UNA OPCION DE MIS CATEGORIAS CON SUS ICONITOS -->
+                <option value="images/varios.svg" selected>Varios</option>
+                <option value="images/carne.svg">Carnicería</option>
+                <option value="images/lacteos.svg">Lácteos</option>
+                <option value="images/frutas.svg">Frutas</option>
+                <option value="images/verduras.svg">Verduras</option> 
+                <option value="images/pan.svg">Panadería</option>
+                <option value="images/vegan.svg">Vegano</option>
+                <option value="images/celiaco.svg">Apto celíaco</option>
+                <option value="images/dulce.svg">Postres</option>
+                <option value="images/vino.svg">Bebidas</option>
+                <option value="images/tecnologia.svg">Electrónica</option>
+                <option value="images/limpieza.svg">Limpieza</option>
+            </select>
+            <!---DESCRIPCION--->
+            <div class="mb-3">
+                <br>
+                <label for="agregarAListaDescripcion" class="form-label"><strong>Descripción del producto</strong></label>
+                <textarea class="form-control agregarAListaDescripcion" id="agregarAListaDescripcion" rows="4" placeholder="Una descripción del producto, algo más detallado :)"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
+            <button type="button" id="botonAgregar2" class="btn boton__color">Añadir</button>
+        </div>
+        </div>
+    </div>
+</div>
+    <section id="ventanaListado" class="ventanaListado off">
+        <!---MI LISTITA--->
+        <ul class="list-group ventanaListadoLista" id="ventanaListadoLista">
+        </ul>
+    </section>
+    <section id="ventanaDescripcion" class="ventanaDescripcion off">
+                <button class="ventanaDescripcionCerrar" id="ventanaDescripcionCerrar">
+            X
+    </button>
+        <div class="centrado">
+            <img class="data-icono ventanaDescripcion__imagen" id="ventanaDescripcionIcono" src="" alt="">
+            <h3 class="data-producto ventanaDescripcion__producto" id="ventanaDescripcionProducto" ></h3>
+            <p class="data-descripcion ventanaDescripcion__data" id="ventanaDescripcionData"></p>
+        </div>
+
+
+    </section>
+<section class="desktop off">
+    <form action id="desktop">
+        <div class="mb-3">
+            <label for="agregarAListaProductoD" class="form-label"><strong>Nombre del producto</strong> </label>
+            <input type="text" class="form-control agregarAListaProducto" id="agregarAListaProductoD" placeholder="Ingresa el nombre del producto" maxlength="15"> <!---hay que validarlo-->
+            <div id="agregarAListaProductohelp" class="form-text"> <i>Máximo de caracteres: 15.</i></div>
+        </div>
+        <label for="agregarAListaIconoD" class="form-label"> <strong>Selecciona la categoría</strong></label>
+        <select id="agregarAListaIconoD" class="form-select" aria-label="Default select example"> <!---HAY QUE VALIDAR--->
+            <!--SELECCIONAR UNA OPCION DE MIS CATEGORIAS CON SUS ICONITOS -->
+            <option value="images/varios.svg" selected>Varios</option>
+            <option value="images/carne.svg">Carnicería</option>
+            <option value="images/lacteos.svg">Lácteos</option>
+            <option value="images/frutas.svg">Frutas</option>
+            <option value="images/verduras.svg">Verduras</option> 
+            <option value="images/pan.svg">Panadería</option>
+            <option value="images/vegan.svg">Vegano</option>
+            <option value="images/celiaco.svg">Apto celíaco</option>
+            <option value="images/dulce.svg">Postres</option>
+            <option value="images/vino.svg">Bebidas</option>
+            <option value="images/tecnologia.svg">Electrónica</option>
+            <option value="images/limpieza.svg">Limpieza</option>
+        </select>
+<!---DESCRIPCION--->
+        <div class="mb-3">
+            <br>
+            <label for="agregarAListaDescripcionD" class="form-label"> <strong>Descripción del producto amigue</strong> </label>
+            <textarea class="form-control agregarAListaDescripcion" id="agregarAListaDescripcionD" rows="4" placeholder="Una descripción del producto, algo más detallado :)"></textarea>
+        </div>
+            <button type="button" id="botondesktop" class="btn boton__color">Agregar</button>
+    </form>
+</section>
+<footer class="misDatos">
+    <h6> <a href="https://escueladevrock.com" target="_blank">Escuela DevRock</a> || SummerHack2021 || mica</h6>
+</footer>
+<!---JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
